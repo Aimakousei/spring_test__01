@@ -1,22 +1,29 @@
 package com.kenshin.config;
 
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ServletContainerInitConfig extends AbstractDispatcherServletInitializer {
 
-    protected WebApplicationContext createServletApplicationContext() {
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.register(SpringMvcConfig.class);
-        return ctx;
+import javax.servlet.Filter;
+
+public class ServletContainerInitConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[0];
+    }
+
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{SpringMvcConfig.class};
     }
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
 
-    protected WebApplicationContext createRootApplicationContext() {
-        return null;
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        return new Filter[]{filter};
     }
 }

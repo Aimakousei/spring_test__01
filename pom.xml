@@ -37,16 +37,16 @@
   </dependencies>
   <build>
     <finalName>spring_test_01</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.1</version>
-        <configuration>
-          <port>80</port>
-          <path>/</path>
-        </configuration>
-      </plugin>
-    </plugins>
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.tomcat.maven</groupId>-->
+<!--        <artifactId>tomcat7-maven-plugin</artifactId>-->
+<!--        <version>2.1</version>-->
+<!--        <configuration>-->
+<!--          <port>80</port>-->
+<!--          <path>/</path>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
   </build>
 </project>
